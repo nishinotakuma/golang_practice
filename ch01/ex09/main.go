@@ -1,4 +1,4 @@
-// ./1-9 gopl.io
+// ./ex09 gopl.io
 package main
 
 import (

@@ -1,4 +1,4 @@
-// ./1-10 https://suumo.jp/ https://zexy.net/
+// ./ex10 https://suumo.jp/ https://zexy.net/
 package main
 
 import (
