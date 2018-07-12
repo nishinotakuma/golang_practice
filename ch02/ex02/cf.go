@@ -1,23 +1,23 @@
 package main
 
 import (
-	"fmt"
+	"bufio"
 	"os"
-	"strconv"
-
-	"gopl.io/ch2/tempconv"
 )
 
 func main() {
-	for _, arg := range os.Args[1:] {
-		t, err := strconv.ParseFloat(arg, 64)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "cf: %v\n", err)
-			os.Exit(1)
+	if len(os.Args) > 1 {
+		for _, arg := range os.Args[1:] {
+			converter(arg)
 		}
-		f := tempconv.Fahrenheit(t)
-		c := tempconv.Celsius(t)
-		fmt.Printf("%s = %s, %s = %s\n",
-			f, tempconv.FToC(f), c, tempconv.CToF(c))
+	} else {
+		stdin := bufio.NewScanner(os.Stdin)
+		for stdin.Scan() {
+			converter(stdin.Text())
+		}
 	}
+}
+
+func converter(s string) {
+
 }
