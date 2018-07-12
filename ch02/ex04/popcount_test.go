@@ -1,4 +1,3 @@
-// go test -bench .
 package popcount
 
 import (
@@ -34,6 +33,19 @@ func PopCount(x uint64) int {
 		pc[byte(x>>(7*8))])
 }
 
+// shift
+func PopCountShift(x uint64) int {
+	count := 0
+	one := uint64(1)
+	for i := 0; i < 64; i++ {
+		if x&one > 0 {
+			count++
+		}
+		x = x >> 1
+	}
+	return count
+}
+
 func bench(b *testing.B, f func(uint64) int) {
 	for i := 0; i < b.N; i++ {
 		f(uint64(i))
@@ -46,4 +58,8 @@ func BenchmarkPopCount(b *testing.B) {
 
 func BenchmarkLoop(b *testing.B) {
 	bench(b, PopCountLoop)
+}
+
+func BenchmarkShift(b *testing.B) {
+	bench(b, PopCountShift)
 }
