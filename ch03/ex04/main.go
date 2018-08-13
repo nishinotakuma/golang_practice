@@ -1,3 +1,4 @@
+// http://localhost:8080/?width=800&height=500
 package main
 
 import (
