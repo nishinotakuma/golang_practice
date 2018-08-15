@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestCountSameBit(t *testing.T) {
+func TestCountDffBit(t *testing.T) {
 	tests := []struct {
 		a, b []byte
 		want int

@@ -27,7 +27,7 @@ func bitDiff(a, b []byte) int {
 	return count
 }
 
-func countSameBit(a, b []byte) int {
+func countDiffBit(a, b []byte) int {
 	shaA := sha256.Sum256(a)
 	shaB := sha256.Sum256(b)
 	return bitDiff(shaA[:], shaB[:])
