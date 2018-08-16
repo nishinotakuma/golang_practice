@@ -1,7 +1,7 @@
 package unique
 
 func unique(strs []string) []string {
-	w := 0 // index of last written string
+	w := 0
 	for _, s := range strs {
 		if strs[w] == s {
 			continue

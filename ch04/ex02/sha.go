@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"crypto/sha256"
 	"crypto/sha512"
 	"flag"
@@ -35,16 +34,9 @@ func main() {
 	default:
 		log.Fatal("Unexpected width")
 	}
-	fmt.Println("ffw")
-	fmt.Println(os.Stdin)
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println(reader)
 	b, err := ioutil.ReadAll(os.Stdin)
-	fmt.Println(err)
-	fmt.Println(b)
 	if err != nil {
 		log.Fatal(err)
 	}
-	a := []byte{0}
-	fmt.Printf("%x\n", function(a))
+	fmt.Printf("%x\n", function(b))
 }
